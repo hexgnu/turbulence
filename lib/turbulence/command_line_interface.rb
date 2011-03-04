@@ -3,6 +3,7 @@ require 'launchy'
 require 'optparse'
 require 'turbulence/scm/git'
 require 'turbulence/scm/perforce'
+require 'turbulence/scm/svn'
 
 class Turbulence
   class CommandLineInterface
