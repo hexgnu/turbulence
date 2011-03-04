@@ -19,6 +19,7 @@ class Turbulence
   def files_of_interest
     file_list = CODE_DIRECTORIES.map{|base_dir| "#{base_dir}/**/*\.rb"}
     @ruby_files ||= Dir[*file_list]
+    @ruby_files
   end
 
   def calculate_metrics_with(calculator)

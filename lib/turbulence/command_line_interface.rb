@@ -18,11 +18,13 @@ class Turbulence
       OptionParser.new do |opts|
         opts.banner = "Usage: bule [options] [dir]"
 
-        opts.on('--scm p4|git', String, 'scm to use (default: git)') do |s|
+        opts.on('--scm p4|git|svn', String, 'scm to use (default: git)') do |s|
           case s
           when "git", "", nil
           when "p4"
             Turbulence::Calculators::Churn.scm = Scm::Perforce
+          when "svn"
+            Turbulence::Calculators::Churn.scm = Scm::Svn
           end
         end
         opts.on('--churn-range since..until', String, 'commit range to compute file churn') do |s|
